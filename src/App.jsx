@@ -7,9 +7,8 @@ const API_BASE_URL = "https://api.themoviedb.org/3";
 
 // /discover/movie
 
-const API_KEY = import.meta.env.MOVIE_KEY_API;
+const API_KEY = import.meta.env.VITE_MOVIE_API_KEY;
 
-const api ='eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNmQyNDczYjE3ZTU3YTQyYjk0M2YyMWEzMzNjMzMxNSIsIm5iZiI6MTczODY3NTIxNi4wOTYsInN1YiI6IjY3YTIxNDEwODBlNTkzZDVmZGUyY2QwOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FjPgHeDbZJF065oEdaD-nWQ07806TM1kdmU3VsQKFw4'
 
 const API_OPTIONS = {
   method: 'GET',
@@ -24,7 +23,8 @@ const API_OPTIONS = {
 
 
 const App = ({searchTerm}) => {
-    ///
+
+    ///config do site
 
     // const options = {
     //     method: 'GET',
@@ -51,7 +51,7 @@ const App = ({searchTerm}) => {
     try {
 
       const endpoint = query 
-      ? `${API_BASE_URL}/discover/movie?query=${encodeURIComponent(query)}` 
+      ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}` 
       :  `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
 
       const response = await fetch(endpoint, API_OPTIONS);
